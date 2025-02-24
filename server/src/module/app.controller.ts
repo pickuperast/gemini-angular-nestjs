@@ -1,8 +1,9 @@
-import { Controller, Post, Body, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Get, Post, Body, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Express } from 'express';
 import Multer from 'multer';
 
+import { AppService } from './app.service';
 import { ChatContent } from 'data-model';
 import { ChatService } from './chat/chat.service';
 import { TextService } from './text/text.service';
@@ -11,9 +12,15 @@ import { VisionService } from './vision/vision.service';
 @Controller()
 export class AppController {
   
-  constructor(private readonly chatService: ChatService, 
+  constructor(private readonly appService: AppService,
+              private readonly chatService: ChatService, 
               private readonly textService: TextService,
               private readonly visionService: VisionService) {}
+
+  @Get()
+  getData() {
+    return this.appService.getData();
+  }
 
   @Post('chat')
   chat(@Body() chatContent: ChatContent) {
