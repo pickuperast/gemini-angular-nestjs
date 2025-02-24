@@ -4,9 +4,9 @@ import { Express } from 'express';
 import Multer from 'multer';
 
 import { ChatContent } from 'data-model';
-import { ChatService } from './chat.service';
-import { TextService } from './text.service';
-import { VisionService } from './vision.service';
+import { ChatService } from './chat/chat.service';
+import { TextService } from './text/text.service';
+import { VisionService } from './vision/vision.service';
 
 @Controller()
 export class AppController {

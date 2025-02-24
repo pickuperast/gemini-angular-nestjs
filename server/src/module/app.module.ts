@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
 import { AppController } from './app.controller';
-import { ChatService } from './chat.service';
-import { TextService } from './text.service';
-import { VisionService } from './vision.service';
+import { ChatService } from './chat/chat.service';
+import { TextService } from './text/text.service';
+import { VisionService } from './vision/vision.service';
 
 @Module({
   imports: [ConfigModule.forRoot()],
